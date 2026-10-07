@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/detail_produk_page.dart';
+import 'package:flutter_application_1/pages/list_produk_page.dart';
 // import 'package:flutter_application_1/kalkulator_page.dart';
 // import 'package:flutter_application_1/login_page.dart';
 // import 'package:flutter_application_1/login_clone.dart';
@@ -18,9 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "belajar flutter pplg 3",
+      title: "my produk",
       initialRoute: Routes.listProduk,
-      getPages: Routes.myPages,
+      getPages: [
+        GetPage(name: Routes.listProduk, page: () => ListProdukPage()),
+        GetPage(name: Routes.detailProduk, page: () => DetailProdukPage()),
+      ],
     );
   }
 }
