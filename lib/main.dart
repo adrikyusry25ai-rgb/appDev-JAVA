@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/detail_produk_page.dart';
 import 'package:flutter_application_1/pages/list_produk_page.dart';
+import 'package:flutter_application_1/pages/menu_drawer_page.dart';
 // import 'package:flutter_application_1/kalkulator_page.dart';
 // import 'package:flutter_application_1/login_page.dart';
 // import 'package:flutter_application_1/login_clone.dart';
@@ -21,10 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "my produk",
-      initialRoute: Routes.listProduk,
+      initialRoute: Routes.menuDrawerpage,
       getPages: [
         GetPage(name: Routes.listProduk, page: () => ListProdukPage()),
         GetPage(name: Routes.detailProduk, page: () => DetailProdukPage()),
+        GetPage(name: Routes.menuDrawerpage, page: () => MenuDrawerPage()),
       ],
     );
   }

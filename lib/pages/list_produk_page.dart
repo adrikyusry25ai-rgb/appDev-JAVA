@@ -3,16 +3,6 @@ import 'package:get/get.dart';
 import 'package:flutter_application_1/controller/list_produk_controller.dart';
 import 'package:flutter_application_1/route.dart';
 
-// format angka jadi Rp 4.999.000
-String _rupiah(double nilai) {
-  final angka = nilai.toStringAsFixed(0);
-  final hasil = angka.replaceAllMapped(
-    RegExp(r'\B(?=(\d{3})+(?!\d))'),
-    (m) => '.',
-  );
-  return "Rp $hasil";
-}
-
 class ListProdukPage extends StatelessWidget {
   ListProdukPage({super.key});
 
@@ -20,13 +10,11 @@ class ListProdukPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final warnaUtama = Theme.of(context).colorScheme.primary;
-
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 91, 108, 151),
+      backgroundColor: Color.fromARGB(255, 141, 154, 204),
       appBar: AppBar(
         title: Text(
-          "My Products",
+          "my mine gw produk",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -41,18 +29,24 @@ class ListProdukPage extends StatelessWidget {
           final produk = controller.listProduk[index];
           return Card(
             color: const Color.fromARGB(255, 141, 154, 204),
-            surfaceTintColor: Colors.white,
             elevation: 2,
-            shadowColor: Colors.black12,
             margin: EdgeInsets.only(bottom: 14),
-            clipBehavior: Clip.antiAlias,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
             child: InkWell(
               onTap: () {
-                // move to detail page with product details
-                Get.toNamed(Routes.detailProduk, arguments: produk);
+                Get.toNamed(
+                  Routes.detailProduk,
+                  arguments: {
+                    'namaProduk': produk.namaProduk,
+                    'description': produk.description,
+                    'harga': produk.harga,
+                    'image': produk.image,
+                    'Rating': produk.Rating,
+                    'Review': produk.Review,
+                  },
+                );
               },
               child: Padding(
                 padding: EdgeInsets.all(12),
@@ -68,15 +62,7 @@ class ListProdukPage extends StatelessWidget {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.network(
-                          produk.image,
-                          fit: BoxFit.contain,
-                          errorBuilder: (_, __, ___) => Icon(
-                            Icons.image_not_supported,
-                            color: Colors.grey,
-                            size: 40,
-                          ),
-                        ),
+                        child: Image.network(produk.image, fit: BoxFit.contain),
                       ),
                     ),
                     SizedBox(width: 14),
@@ -95,13 +81,14 @@ class ListProdukPage extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+
                           SizedBox(height: 6),
                           Text(
-                            _rupiah(produk.harga),
+                            "Rp ${produk.harga.toStringAsFixed(0)}",
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
-                              color: warnaUtama,
+                              color: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
                           SizedBox(height: 8),
@@ -117,8 +104,7 @@ class ListProdukPage extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.star,
-                                    color: Colors.amber, size: 16),
+                                Icon(Icons.star, color: Colors.amber, size: 16),
                                 SizedBox(width: 4),
                                 Text(
                                   "${produk.Rating}",
@@ -133,7 +119,6 @@ class ListProdukPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Icon(Icons.chevron_right, color: Colors.grey),
                   ],
                 ),
               ),

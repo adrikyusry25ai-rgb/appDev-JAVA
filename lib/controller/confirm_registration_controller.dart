@@ -11,10 +11,10 @@ class ConfirmRegistrationController extends GetxController {
   void onInit() {
     super.onInit();
     final arguments = Get.arguments;
-    nama = arguments?['name'] ?? '-';
-    alamat = arguments?['alamat'] ?? '-';
-    jenisKelamin = arguments?['jenis_kelamin'] ?? '-';
-    noWa = arguments?['no_wa'] ?? '-';
-    email = arguments?['email'] ?? '-';
+    nama = arguments['name'];
+    alamat = arguments['alamat'];
+    jenisKelamin = arguments['jenis_kelamin'];
+    noWa = arguments['no_wa'];
+    email = arguments['email'];
   }
 }
