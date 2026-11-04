@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/components/mymine_button.dart';
 import 'package:flutter_application_1/components/mymine_dropdown.dart';
 import 'package:flutter_application_1/components/mymine_textfield.dart';
-import 'package:flutter_application_1/route.dart';
+import 'package:flutter_application_1/routes.dart';
 import 'package:get/get.dart';
 
 class RegistrationPage extends StatelessWidget {
@@ -18,7 +18,6 @@ class RegistrationPage extends StatelessWidget {
     final jenisKelamin = RxnString(); // null = belum dipilih
     final listJenisKelamin = ['Laki-laki', 'Perempuan'];
 
-    // no WA hanya angka: huruf/simbol yang diketik langsung dihapus
     txtNoWa.addListener(() {
       final digits = txtNoWa.text.replaceAll(RegExp(r'[^0-9]'), '');
       if (digits != txtNoWa.text) {
@@ -73,7 +72,7 @@ class RegistrationPage extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 500),
             child: Column(
               children: [
-                // ===== Header =====
+                
                 const CircleAvatar(
                   radius: 32,
                   backgroundColor: Colors.blue,
@@ -91,9 +90,7 @@ class RegistrationPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                // ===== Kartu form =====
-                // Theme ini yang mengatur tampilan field & tombol
-                // tanpa mengubah file komponen
+               
                 Theme(
                   data: Theme.of(context).copyWith(
                     inputDecorationTheme: InputDecorationTheme(

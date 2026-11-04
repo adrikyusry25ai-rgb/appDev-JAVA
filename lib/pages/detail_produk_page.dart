@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controller/detail_produk_controller.dart';
-import 'package:flutter_application_1/route.dart';
+// import 'package:flutter_application_1/route.dart';
 
 class DetailProdukPage extends StatelessWidget {
   DetailProdukPage({super.key});

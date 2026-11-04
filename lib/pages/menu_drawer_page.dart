@@ -18,7 +18,7 @@ class MenuDrawerPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color.fromARGB(255, 91, 108, 151)),
+          backgroundColor: Color.fromARGB(255, 141, 154, 204)),
 
           drawer: NavigationDrawer(
             selectedIndex: controller.selectedIndex.value,

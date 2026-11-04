@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controller/list_produk_controller.dart';
-import 'package:flutter_application_1/route.dart';
+import 'package:flutter_application_1/routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -12,14 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 91, 108, 151),
-      appBar: AppBar(
-        title: Text(
-          "My Products",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 141, 154, 204),
-      ),
+      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -102,9 +95,6 @@ class HomePage extends StatelessWidget {
                               "Rp ${produk.harga.toStringAsFixed(0)}",
                               style: TextStyle(
                                 fontSize: 16,
-
-
-
                                 
                                 fontWeight: FontWeight.bold,
                               ),

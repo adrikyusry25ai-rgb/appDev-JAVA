@@ -1,10 +1,12 @@
 import 'package:flutter_application_1/pages/detail_produk_page.dart';
 import 'package:flutter_application_1/pages/list_produk_page.dart';
-import 'package:flutter_application_1/pages/main_menu_page.dart';
+import 'package:flutter_application_1/pages/login_clone_fix.dart';
+// import 'package:flutter_application_1/pages/main_menu_page.dart';
 import 'package:flutter_application_1/pages/menu_drawer_page.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/pages/confirm_registration_page.dart';
 import 'package:flutter_application_1/pages/registration_page.dart';
+
 
 class Routes {
   
@@ -18,6 +20,7 @@ class Routes {
   static const String home = '/home';
   static const String history = '/history';
   static const String profile = '/profile';
+  static const String loginPageCloneFix = '/loginPageCloneFix';
 
 
   static final myPages = [
@@ -25,6 +28,7 @@ class Routes {
     GetPage(name: confirmRegistration, page: () => ConfirmRegistrationPage()),
     GetPage(name: listProduk, page: () => ListProdukPage()),
     GetPage(name: detailProduk, page: () => DetailProdukPage()),
-    GetPage(name: menuDrawerpage, page: () => MenuDrawerPage())
+    GetPage(name: menuDrawerpage, page: () => MenuDrawerPage()),
+    GetPage(name: loginPageCloneFix, page: () => LoginPageCloneFix()),
   ];
 }

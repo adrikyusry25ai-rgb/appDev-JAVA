@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/mymine_button.dart';
 import 'package:flutter_application_1/components/mymine_textfield.dart';
+import 'package:flutter_application_1/controller/login_controller.dart';
+import 'package:get/get.dart';
+
+
 
 class LoginPageCloneFix extends StatelessWidget {
-  const LoginPageCloneFix({super.key});
+  LoginPageCloneFix({super.key});
+
+  final controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
-    // controller dibuat langsung sebagai field, tanpa perlu State
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
+       
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -67,42 +71,35 @@ class LoginPageCloneFix extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               MymineTextfield(
-                hint: 'Email',
-                txtcontroller: emailController,
+                hint: 'username',
+                txtcontroller: controller.txtUsername,
                 radius: 4,
               ),
               const SizedBox(height: 16),
               MymineTextfield(
                 hint: 'Password',
-                txtcontroller: passwordController,
+                txtcontroller: controller.txtPassword,
                 radius: 4,
                 obscureText: true,
               ),
               const SizedBox(height: 24),
-              // Tombol Forgot Password
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    color: Color(0xFF0A66C2),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-              // Tombol Sign In 
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: MymineButton(
+                child: 
+                
+                Obx(()=>controller.isLoading.value ? Center(
+                  child: CircularProgressIndicator(),
+                ) : MymineButton(
                   text: 'Sign in',
                   radius: 25,
-                  color: const Color(0xFF0A66C2),
-                  onPressed: () {},
+                  color: const Color.fromARGB(255, 197, 208, 217),
+                  onPressed: () {
+                    controller.login();
+                  },
                 ),
-              ),
+              )     
+            ),
               const SizedBox(height: 24),
               // Link Daftar
               Row(

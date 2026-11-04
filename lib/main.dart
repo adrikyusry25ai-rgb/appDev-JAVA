@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/detail_produk_page.dart';
 import 'package:flutter_application_1/pages/list_produk_page.dart';
+import 'package:flutter_application_1/pages/login_clone_fix.dart';
 import 'package:flutter_application_1/pages/menu_drawer_page.dart';
 // import 'package:flutter_application_1/kalkulator_page.dart';
 // import 'package:flutter_application_1/login_page.dart';
 // import 'package:flutter_application_1/login_clone.dart';
-// import 'package:flutter_application_1/pages/login_clone_fix.dart';
+import 'package:flutter_application_1/pages/login_clone_fix.dart';
 // import 'package:flutter_application_1/pages/kalkulator_pagest.dart';
 import 'package:get/get.dart';
-import 'package:flutter_application_1/route.dart';
+import 'package:flutter_application_1/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,12 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "my produk",
-      initialRoute: Routes.menuDrawerpage,
-      getPages: [
-        GetPage(name: Routes.listProduk, page: () => ListProdukPage()),
-        GetPage(name: Routes.detailProduk, page: () => DetailProdukPage()),
-        GetPage(name: Routes.menuDrawerpage, page: () => MenuDrawerPage()),
-      ],
+      initialRoute: Routes.loginPageCloneFix,
+      getPages: Routes.myPages,
     );
   }
 }
