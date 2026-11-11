@@ -9,19 +9,18 @@ class MenuDrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Obx(
+    return Obx(
       () => Scaffold(
         appBar: AppBar(
           title: Text(
             "my mine gw produk",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          backgroundColor: Color.fromARGB(255, 141, 154, 204)),
+          backgroundColor: Color.fromARGB(255, 141, 154, 204),
+        ),
 
-          drawer: NavigationDrawer(
-            selectedIndex: controller.selectedIndex.value,
+        drawer: NavigationDrawer(
+          selectedIndex: controller.selectedIndex.value,
 
           onDestinationSelected: (index) {
             controller.changeIndex(index);
@@ -38,8 +37,12 @@ class MenuDrawerPage extends StatelessWidget {
               label: Text("History"),
             ),
             NavigationDrawerDestination(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person), 
               label: Text("Profile"),
+            ),
+            NavigationDrawerDestination(
+              icon: Icon(Icons.storefront),
+              label: Text("Market"),
             ),
           ],
         ),
